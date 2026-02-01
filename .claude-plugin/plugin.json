@@ -6,10 +6,10 @@
     "name": "Calclawd",
     "email": "calclawd@agentmail.to"
   },
-  "homepage": "https://github.com/Calclawd/x-outreach-agent",
+  "homepage": "https://github.com/Calclawd/UGC-creators-tool",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Calclawd/x-outreach-agent"
+    "url": "https://github.com/Calclawd/UGC-creators-tool"
   },
   "license": "MIT",
   "keywords": [
@@ -131,8 +131,8 @@
     "revenue": "Variable — depends on deal closure rate and deal size"
   },
   "support": {
-    "documentation": "https://github.com/Calclawd/x-outreach-agent",
-    "issues": "https://github.com/Calclawd/x-outreach-agent/issues",
+    "documentation": "https://github.com/Calclawd/UGC-creators-tool",
+    "issues": "https://github.com/Calclawd/UGC-creators-tool/issues",
     "x_docs": "https://developer.x.com/en/docs",
     "agentmail_docs": "https://docs.agentmail.to"
   }

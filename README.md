@@ -24,7 +24,7 @@ Discover creators on X (Twitter), reach out via DM or email, and negotiate rates
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/Calclawd/x-outreach-agent
+git clone https://github.com/Calclawd/UGC-creators-tool
 cd x-outreach-agent
 npm install
 npm run build
@@ -323,8 +323,8 @@ MIT
 
 ## Support
 
-- **GitHub:** https://github.com/Calclawd/x-outreach-agent
-- **Issues:** https://github.com/Calclawd/x-outreach-agent/issues
+- **GitHub:** https://github.com/Calclawd/UGC-creators-tool
+- **Issues:** https://github.com/Calclawd/UGC-creators-tool/issues
 - **X Docs:** https://developer.x.com
 - **AgentMail Docs:** https://docs.agentmail.to
 
