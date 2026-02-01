@@ -1,0 +1,42 @@
+{
+  "name": "x-outreach-webhook-adapter",
+  "version": "1.0.0",
+  "description": "Webhook adapter for X Outreach Agent — receives AgentMail webhooks, verifies Svix signatures, wakes OpenClaw",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch server.ts",
+    "test": "tsx test-webhook.ts",
+    "typecheck": "tsc --noEmit",
+    "docker:build": "docker build -t x-outreach-webhook .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env x-outreach-webhook",
+    "compose:up": "docker-compose up -d",
+    "compose:down": "docker-compose down",
+    "compose:logs": "docker-compose logs -f webhook"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ioredis": "^5.3.2",
+    "svix": "^1.15.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "webhook",
+    "agentmail",
+    "svix",
+    "openclaw",
+    "x-outreach"
+  ],
+  "author": "james",
+  "license": "MIT"
+}

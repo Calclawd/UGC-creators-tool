@@ -1,0 +1,47 @@
+# X Outreach Agent — Webhook Adapter
+# Fly.io deployment configuration
+#
+# Deploy:
+#   fly launch --no-deploy
+#   fly secrets set AGENTMAIL_WEBHOOK_SECRET=whsec_...
+#   fly secrets set OPENCLAW_BASE_URL=https://your-vps:18789
+#   fly secrets set OPENCLAW_HOOK_TOKEN=your-token
+#   fly secrets set REDIS_URL=redis://default:xxx@your-redis.upstash.io:6379
+#   fly deploy
+
+app = "x-outreach-webhook"
+primary_region = "iad"  # US East, change to your region
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "3000"
+  NODE_ENV = "production"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false  # Keep running for webhooks
+  auto_start_machines = true
+  min_machines_running = 1
+  
+  [http_service.concurrency]
+    type = "requests"
+    hard_limit = 250
+    soft_limit = 200
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/health"
+
+# For Redis, use Upstash (free tier available)
+# fly redis create
+# Or connect to external Redis via REDIS_URL secret
+
+[metrics]
+  port = 3000
+  path = "/metrics"

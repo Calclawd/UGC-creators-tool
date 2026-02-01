@@ -1,0 +1,70 @@
+{
+  "agentmail": {
+    "apiKey": "AGENTMAIL_API_KEY",
+    "inboxId": "",
+    "inboxEmail": "",
+    "webhook": {
+      "url": "https://YOUR_PUBLIC_HOST/webhooks/agentmail",
+      "secret": "",
+      "webhookId": "",
+      "eventTypes": ["message.received"]
+    }
+  },
+  "openclaw": {
+    "baseUrl": "https://YOUR_VPS_HOST:18789",
+    "token": "OPENCLAW_HOOK_TOKEN",
+    "path": "/hooks"
+  },
+  "x": {
+    "bearerToken": "X_BEARER_TOKEN",
+    "userAccessToken": "X_USER_ACCESS_TOKEN"
+  },
+  "campaign": {
+    "name": "Creator outreach (generic)",
+    "topics": [
+      "(ugc OR \"content creator\" OR creator OR thread OR explainer OR tutorial OR \"write-up\")",
+      "(crypto OR blockchain OR \"layer 2\" OR rollup OR zk OR \"zero knowledge\" OR cryptography OR \"game dev\" OR gaming OR onchain)",
+      "(collab OR sponsor OR sponsored OR partnership OR paid OR \"work with\" OR \"DMs open\" OR \"open dms\")"
+    ],
+    "antiTopics": ["airdrop", "giveaway", "whitelist", "referral", "casino"],
+    "creatorSignals": ["DMs open", "open dms", "work inquiries", "collab", "sponsor", "partnership"],
+    "offerMenu": [
+      {
+        "key": "thread_basic",
+        "deliverables": ["1 thread", "1 follow-up post"],
+        "usage": "organic_only",
+        "baselineUsd": 500
+      },
+      {
+        "key": "thread_plus",
+        "deliverables": ["1 thread", "2 follow-up posts", "CTA link included"],
+        "usage": "organic_plus_repost",
+        "baselineUsd": 900
+      },
+      {
+        "key": "space_segment",
+        "deliverables": ["1 X Space segment (30–45m)", "1 promo post"],
+        "usage": "organic_only",
+        "baselineUsd": 1200
+      }
+    ],
+    "guardrails": {
+      "maxUsdPerDeal": 2000,
+      "maxUsdPerDeliverable": 1500,
+      "allowPaidUsage": false,
+      "escalation": {
+        "aboveMaxPct": 20,
+        "asksExclusivity": true,
+        "asksWhitelisting": true,
+        "unclearUsage": true
+      }
+    },
+    "outreach": {
+      "dmDailyCap": 40,
+      "dmJitterMinutes": 120,
+      "followUps": 1,
+      "preferDmIfOpen": true,
+      "emailEnabled": true
+    }
+  }
+}
